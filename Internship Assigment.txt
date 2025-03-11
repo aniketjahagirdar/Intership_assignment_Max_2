@@ -1,0 +1,46 @@
+let a = [1, 4, 7, 8, 4, 8, 1, 4, 9];
+let n = a.length;
+
+// Step 1: Sorting the array 
+for (let i = 0; i < n - 1; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+        if (a[j] > a[j + 1]) {
+            let temp = a[j];
+            a[j] = a[j + 1];
+            a[j + 1] = temp;
+        }
+    }
+}
+
+console.log("Sorted array:", a);
+
+// Step 2: Remove Duplicates
+let unique = [];
+let k = 0;
+
+for (let i = 0; i < n; i++) {
+    if (i === 0 || a[i] !== a[i - 1]) {
+        unique[k] = a[i];
+        k++;
+    }
+}
+
+// Step 3: Print Unique Elements
+console.log("Unique elements:");
+for (let i = 0; i < k; i++) {
+    console.log(unique[i]);
+}
+
+// Step 4: Find Second Highest
+if (k < 2) {
+    console.log("Second highest element not found");
+} else {
+    console.log("Second highest element is:", unique[k - 2]);
+}
+
+
+
+output::=
+Sorted array: [ 1, 1, 4, 4, 4, 7, 8, 8, 9 ]
+Unique elements: [ 1, 4, 7, 8, 9 ]
+Second highest element is: 8
